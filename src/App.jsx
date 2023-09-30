@@ -6,9 +6,9 @@ export default function Counter() {
 	return (
 		<>
 			<div className="card">
-				<h1 id="counter">{number}</h1>
+				<h1 data-testid="counter">{number}</h1>
 				<button
-					id="incrementButton"
+					data-testid="incrementButton"
 					onClick={() => {
 						setNumber(number + 1);
 						setNumber(number + 1);

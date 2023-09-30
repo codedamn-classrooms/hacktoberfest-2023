@@ -1,8 +1,15 @@
-// Fix the Bug!
+export function generateRandomHexCode() {
+	let hexCode = "#";
 
-const newsletter = "Bytes"
-const tagline = "Your weekly dose of JavaScript"
+	for (let i = 0; i < 3; i++) {
+		hexCode += Math.floor(Math.random() * 256).toString(16);
+	}
 
-[(newsletter, tagline)].forEach(
-	(el) => console.log(el)
-);
+	return hexCode;
+}
+
+// You can log the results of the function to debug
+// Sample Strings
+for (let i = 0; i < 100; i++) {
+	console.log(generateRandomHexCode());
+}

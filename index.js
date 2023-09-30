@@ -4,6 +4,6 @@
 const company = "Nike"
 const tagline = "Just do it"
 
-[(newsletter, tagline)].forEach(
+[company, tagline].forEach(
 	(el) => console.log(el)
 );

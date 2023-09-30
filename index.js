@@ -1,3 +1,7 @@
+/**
+ * Returns a 6 digit hexCode prepended with '#' as a valid color code
+ * @returns {string} hexCode
+ */
 export function generateRandomHexCode() {
 	let hexCode = "#";
 

@@ -1,7 +1,8 @@
+
 // Fix the Bug!
 
-const newsletter = "Bytes"
-const tagline = "Your weekly dose of JavaScript"
+const company = "Nike"
+const tagline = "Just do it"
 
 [(newsletter, tagline)].forEach(
 	(el) => console.log(el)

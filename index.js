@@ -3,7 +3,7 @@
  * @param {number[]} arr - Array of Numbers
  * @returns {number} Middle Value
  */
-function getMiddleValue(arr) {
+export function getMiddleValue(arr) {
 	arr.sort((a, b) => a - b);
 
 	if (arr.length % 2 === 0) {

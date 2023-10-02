@@ -1,23 +1,14 @@
 /**
- * Returns a boolean value for whether the owner should be alerted
- * @param {number} durationInWarehouse
- * @param {number} temperature
- * @returns {Boolean}
+ * The functions returns a sorted array after adding the new element
+ * @param {number[]} array
+ * @param {number} element
+ * @returns {number[]}
  */
-export function shouldAlertOwner(durationInWarehouse, temperature) {
-	const CRITICAL_TEMPERATURE = 30; // °C
-	const SECONDARY_TEMPERATURE = 25; // °C
-	const CRITICAL_DURATION = 7; // Days
-
-	return (
-		(temperature > CRITICAL_TEMPERATURE &&
-			durationInWarehouse > CRITICAL_DURATION) ||
-		temperature > SECONDARY_TEMPERATURE
-	);
+export function addAndSort(array, element) {
+	return array.push(element).sort();
 }
 
-// Sample Tests
-
-console.log(shouldAlertOwner(5, 26)); // Expected Output: false
-console.log(shouldAlertOwner(8, 26)); // Expected Output: true
-console.log(shouldAlertOwner(8, 32)); // Expected Output: true
+// Sample Test Cases
+console.log(addAndSort([5, 7, 1, 6], 3)); // Expected Output: [1, 3, 5, 6, 7]
+console.log(addAndSort([15, 7, 2, 26], 10)); // Expected Output: [2, 7, 10, 15, 26]
+console.log(addAndSort([25, 27, 21, 16], 19)); // Expected Output: [16, 19, 21, 25, 27]

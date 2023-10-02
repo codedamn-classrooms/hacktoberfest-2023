@@ -1,32 +1,23 @@
-import axios from "axios";
-
 /**
- * @typedef {Object} Joke
- * @property {string} setup - The setup of the joke.
- * @property {string} punchline - The punchline of the joke.
+ * Returns the middle value for a given array if odd and average if even
+ * @param {number[]} arr - Array of Numbers
+ * @returns {number} Middle Value
  */
+function getMiddleValue(arr) {
+	arr.sort((a, b) => a - b);
 
-/**
- * returns a random joke from an api
- * @returns {Joke}
- */
-export async function getJoke() {
-	// Obtain the response from API
-	const response = axios.get(
-		"https://official-joke-api.appspot.com/random_joke"
-	);
-
-	// Parse the response
-	const data = response.data;
-
-	return {
-		setup: data.setup,
-		punchline: data.punchline,
-	};
+	if (arr.length % 2 === 0) {
+		const mid1 = arr[arr.length / 2 - 1];
+		const mid2 = arr[arr.length / 2];
+		return (mid1 + mid2) / 2;
+	} else {
+		return arr[Math.floor(arr.length / 2) - 1];
+	}
 }
 
-getJoke();
+// Sample Test Cases
+const numbers1 = [5, 3, 8, 4, 2];
+const numbers2 = [40, 20, 60, 80, 50, 30];
 
-// Sample Test
-const joke = await getJoke();
-console.log(joke);
+console.log(getMiddleValue(numbers1)); // Expected Output: 4
+console.log(getMiddleValue(numbers2)); // Expected Output: 45

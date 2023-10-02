@@ -1,14 +1,9 @@
-/**
- * The functions returns a sorted array after adding the new element
- * @param {number[]} array
- * @param {number} element
- * @returns {number[]}
- */
-export function addAndSort(array, element) {
-	return array.push(element).sort();
-}
+const petName = "Leo";
+const placeholder = "{NAME}";
+const reminderTemplate =
+	"{NAME} is due for another visit. Please call us so we can set up a new appointment. We look forward to seeing you and {NAME} soon.";
 
-// Sample Test Cases
-console.log(addAndSort([5, 7, 1, 6], 3)); // Expected Output: [1, 3, 5, 6, 7]
-console.log(addAndSort([15, 7, 2, 26], 10)); // Expected Output: [2, 7, 10, 15, 26]
-console.log(addAndSort([25, 27, 21, 16], 19)); // Expected Output: [16, 19, 21, 25, 27]
+const reminder = reminderTemplate.replace(placeholder, petName);
+
+// Test your code
+console.log(reminder);

@@ -1,8 +1,14 @@
 import axios from "axios";
 
 /**
+ * @typedef {Object} Joke
+ * @property {string} setup - The setup of the joke.
+ * @property {string} punchline - The punchline of the joke.
+ */
+
+/**
  * returns a random joke from an api
- * @returns {string} Joke
+ * @returns {Joke}
  */
 export async function getJoke() {
 	// Obtain the response from API

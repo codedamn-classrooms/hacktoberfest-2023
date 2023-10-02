@@ -1,23 +1,23 @@
 /**
- * Returns the middle value for a given array if odd and average if even
- * @param {number[]} arr - Array of Numbers
- * @returns {number} Middle Value
+ * Returns a boolean value for whether the owner should be alerted
+ * @param {number} durationInWarehouse
+ * @param {number} temperature
+ * @returns {Boolean}
  */
-export function getMiddleValue(arr) {
-	arr.sort((a, b) => a - b);
+export function shouldAlertOwner(durationInWarehouse, temperature) {
+	const CRITICAL_TEMPERATURE = 30; // °C
+	const SECONDARY_TEMPERATURE = 25; // °C
+	const CRITICAL_DURATION = 7; // Days
 
-	if (arr.length % 2 === 0) {
-		const mid1 = arr[arr.length / 2 - 1];
-		const mid2 = arr[arr.length / 2];
-		return (mid1 + mid2) / 2;
-	} else {
-		return arr[Math.floor(arr.length / 2) - 1];
-	}
+	return (
+		(temperature > CRITICAL_TEMPERATURE &&
+			durationInWarehouse > CRITICAL_DURATION) ||
+		temperature > SECONDARY_TEMPERATURE
+	);
 }
 
-// Sample Test Cases
-const numbers1 = [5, 3, 8, 4, 2];
-const numbers2 = [40, 20, 60, 80, 50, 30];
+// Sample Tests
 
-console.log(getMiddleValue(numbers1)); // Expected Output: 4
-console.log(getMiddleValue(numbers2)); // Expected Output: 45
+console.log(shouldAlertOwner(5, 26)); // Expected Output: false
+console.log(shouldAlertOwner(8, 26)); // Expected Output: true
+console.log(shouldAlertOwner(8, 32)); // Expected Output: true

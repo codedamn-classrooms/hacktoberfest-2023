@@ -138,7 +138,7 @@ export default function StartAttempt() {
 				<>
 					<div className="mt-2">
 						<p
-							data-testid="quiz-answer-counter"
+							data-testid="quiz-answer-counter "
 							className="text-lg font-semibold text-end px-6"
 						>
 							Correct Answers:{" "}
@@ -161,7 +161,7 @@ export default function StartAttempt() {
 				</>
 			) : (
 				<>
-					<div className="mx-auto w-full text-center mt-24">
+					<div className="mx-auto w-1/2 text-center mt-24">
 						<h3 className="text-2xl">Final Score</h3>
 						<p
 							data-testid="final-answer-counter"

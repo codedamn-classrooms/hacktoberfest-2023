@@ -26,7 +26,7 @@ export default function Question({
 				<p className="text-lg text-gray-800 mt-2">
 					{questionDescription}
 				</p>
-				<div className="flex flex-col items-start gap-2 w-1/2 mt-6">
+				<div className="flex flex-col items-start gap-2 w-full mt-6">
 					{options.map((optionText, index) => {
 						return (
 							<button

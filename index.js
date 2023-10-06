@@ -11,8 +11,10 @@ function processItem(item) {
 async function scheduleLogging(data) {
 	for (var i = 0; i < data.length; i++) {
 		setTimeout(async function () {
-			console.log(await processItem(data[i]));
-		}, 100 * i);
+			let listItem = document.createElement("li");
+			listItem.textContent = data[i];
+			document.body.appendChild(listItem);
+		}, 500 * i);
 	}
 }
 

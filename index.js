@@ -1,19 +1,25 @@
-/**
- * Returns a 6 digit hexCode prepended with '#' as a valid color code
- * @returns {string} hexCode
- */
-export function generateRandomHexCode() {
-	let hexCode = "#";
+function fetchData() {
+	// Simulates fetching data
+	return Promise.resolve([10, 20, 30, 40, 50]);
+}
 
-	for (let i = 0; i < 3; i++) {
-		hexCode += Math.floor(Math.random() * 256).toString(16);
+function processItem(item) {
+	// Simulates processing each item
+	return new Promise((resolve) => resolve(item * 2));
+}
+
+async function scheduleLogging(data) {
+	for (var i = 0; i < data.length; i++) {
+		setTimeout(async function () {
+			console.log(await processItem(data[i]));
+		}, 100 * i);
 	}
-
-	return hexCode;
 }
 
-// You can log the results of the function to debug
-// Sample Strings
-for (let i = 0; i < 100; i++) {
-	console.log(generateRandomHexCode());
+async function init() {
+	const data = await fetchData();
+	scheduleLogging(data);
 }
+
+// Start executing the code
+init();

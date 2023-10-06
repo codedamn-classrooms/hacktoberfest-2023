@@ -7,8 +7,15 @@
  */
 export function initializeEmptyMatrix(rows, cols) {
 	// Handle non-positive, null, or undefined dimensions by throwing an error
-	if (rows <= 0 || cols <= 0 || rows == null || cols == null) {
-		throw new Error("Dimensions must be positive numbers");
+	if (
+		rows <= 0 ||
+		cols <= 0 ||
+		rows == null ||
+		cols == null ||
+		!Number.isInteger(rows) ||
+		!Number.isInteger(cols)
+	) {
+		throw new Error("Dimensions must be positive integers");
 	}
 
 	// Create new Matrix using .fill method

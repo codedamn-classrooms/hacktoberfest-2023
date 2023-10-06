@@ -1,0 +1,3 @@
+tabs: ["src/App.tsx", "src/components/Question.tsx"]
+run-button: yarn dev
+terminals: ["yarn install && yarn dev"]

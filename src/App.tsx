@@ -137,7 +137,10 @@ export default function StartAttempt() {
 			{currentQuestionIndex < questions.length ? (
 				<>
 					<div className="mt-2">
-						<p className="text-lg font-semibold text-end px-6">
+						<p
+							data-testid="quiz-answer-counter"
+							className="text-lg font-semibold text-end px-6"
+						>
 							Correct Answers:{" "}
 							{questionAttemptVerdictArray.reduce(
 								(acc: number, element) =>
@@ -158,9 +161,12 @@ export default function StartAttempt() {
 				</>
 			) : (
 				<>
-					<div className="mx-auto w-1/2 text-center mt-24">
+					<div className="mx-auto w-full text-center mt-24">
 						<h3 className="text-2xl">Final Score</h3>
-						<p className="text-6xl font-bold">
+						<p
+							data-testid="final-answer-counter"
+							className="text-6xl font-bold"
+						>
 							{questionAttemptVerdictArray.reduce(
 								(acc: number, element) =>
 									element.isCorrect ? acc++ : acc,

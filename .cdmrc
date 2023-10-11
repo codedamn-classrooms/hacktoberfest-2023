@@ -1,4 +1,4 @@
-tabs: ["index.js"]
+tabs: ["server/index.js", "client/app.js"]
 run-button: static-server -p 1337 --no-cache
 terminals:
   [

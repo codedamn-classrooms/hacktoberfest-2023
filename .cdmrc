@@ -1,3 +1,7 @@
 tabs: ["index.js"]
 run-button: static-server -p 1337 --no-cache
-terminals: ["static-server -p 1337 --no-cache", "yarn install && yarn dev"]
+terminals:
+  [
+    "cd client && static-server -p 1337 --no-cache",
+    "cd server && yarn install && yarn dev",
+  ]

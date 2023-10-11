@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
 	let accessToken = null;
 
 	const backendURL = new URL(location.href);
-	backendURL.port = 1338;
+	let subdomain = backendURL.hostname.split(".")[0];
+	subdomain += "-1338";
+	backendURL.hostname = subdomain + ".codedamn.app";
 
 	loginForm.addEventListener("submit", async function (event) {
 		event.preventDefault();
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		const password = formData.get("password");
 
 		try {
-			const response = await fetch(`${backendURL}/login`, {
+			const response = await fetch(`${backendURL.origin}/login`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	async function fetchProducts() {
 		try {
-			const response = await fetch(`${backendURL}/products`, {
+			const response = await fetch(`${backendURL.origin}/products`, {
 				headers: {
 					Authorization: `Bearer ${accessToken}`,
 				},

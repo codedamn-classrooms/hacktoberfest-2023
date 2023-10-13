@@ -1,9 +1,15 @@
+function addTask() {
+	let taskText = document.getElementById("taskInput").value;
+	if (taskText === "") return;
 
-// Fix the Bug!
+	let li = document.createElement("li");
+	li.textContent = taskText;
+	li.addEventListener("click", markCompleted);
 
-const company = "Nike"
-const tagline = "Just do it"
+	document.getElementById("taskList").appendChild(li);
+	document.getElementById("taskInput").value = "";
+}
 
-[company, tagline].forEach(
-	(el) => console.log(el)
-);
+function markCompleted(event) {
+	event.target.classlist.toggle("completed");
+}

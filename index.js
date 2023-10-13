@@ -26,7 +26,7 @@ function filterTasks(filter) {
 					? (tasks[i].style.display = "")
 					: (tasks[i].style.display = "none");
 				break;
-			case "uncompleted":
+			case "incomplete":
 				!tasks[i].classList.contains("completed")
 					? (tasks[i].style.display = "none")
 					: (tasks[i].style.display = "");

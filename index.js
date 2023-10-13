@@ -11,5 +11,26 @@ function addTask() {
 }
 
 function markCompleted(event) {
-	event.target.classlist.toggle("completed");
+	event.target.classList.toggle("completed");
+}
+
+function filterTasks(filter) {
+	let tasks = document.getElementById("taskList").children;
+	for (let i = 0; i < tasks.length; i++) {
+		switch (filter) {
+			case "all":
+				tasks[i].style.display = "";
+				break;
+			case "completed":
+				tasks[i].classList.contains("completed")
+					? (tasks[i].style.display = "")
+					: (tasks[i].style.display = "none");
+				break;
+			case "uncompleted":
+				!tasks[i].classList.contains("completed")
+					? (tasks[i].style.display = "none")
+					: (tasks[i].style.display = "");
+				break;
+		}
+	}
 }

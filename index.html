@@ -9,9 +9,13 @@
 	<body>
 		<input type="text" id="taskInput" placeholder="New task..." />
 		<button onclick="addTask()">Add Task</button>
-		<button onclick="filterTasks('all')">Show All</button>
-		<button onclick="filterTasks('completed')">Show Completed</button>
-		<button onclick="filterTasks('uncompleted')">Show Uncompleted</button>
+		<div>
+			<button onclick="filterTasks('all')">Show All</button>
+			<button onclick="filterTasks('completed')">Show Completed</button>
+			<button onclick="filterTasks('uncompleted')">
+				Show Uncompleted
+			</button>
+		</div>
 		<ul id="taskList"></ul>
 
 		<script src="index.js"></script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Habit Tracker</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div>
+			<input
+				type="text"
+				id="habit-title"
+				placeholder="Habit Title"
+				required
+			/>
+			<input
+				type="text"
+				id="habit-emoji"
+				placeholder="Emoji"
+				required
+				pattern="\p{Emoji}"
+			/>
+			<input type="color" id="habit-color" required />
+			<button onclick="createHabit()">Add Habit</button>
+		</div>
+
+		<div id="daily-progress" style="display: none">
+			<span id="date"></span> - Habits Met:
+			<span id="habits-met">0</span>/<span id="total-habits">0</span>
+		</div>
+
+		<div id="habit-container">
+			<!-- Habit counters will be injected here -->
+		</div>
+
+		<dialog id="log-dialog">
+			<button onclick="document.getElementById('log-dialog').close()">
+				Close
+			</button>
+			<ul id="log-list">
+				<!-- Logs will be injected here -->
+			</ul>
+		</dialog>
+
+		<script src="script.js"></script>
+	</body>
+</html>

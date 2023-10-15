@@ -1,0 +1,25 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f0f0f0;
+	padding: 20px;
+}
+.habit {
+	padding: 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+.habit h3 {
+	margin: 0 0 10px;
+}
+.habit button {
+	margin-right: 10px;
+}
+input,
+button {
+	border-radius: 5px;
+}
+
+#daily-progress {
+	margin-bottom: 20px;
+	font-size: 1.2em;
+}

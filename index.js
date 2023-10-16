@@ -11,6 +11,10 @@ app.get("/get-data", (req, res) => {
 	res.json({ data: dataStore });
 });
 
+app.get("/", (req, res) => {
+	res.send("Hello from Express!");
+});
+
 app.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}/`);
 });

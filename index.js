@@ -2,17 +2,22 @@ const express = require("express");
 const app = express();
 const port = process.env.PUBLIC_PORT;
 
-const dataStore = [
-	{ id: 1, name: "Item 1" },
-	{ id: 2, name: "Item 2" },
-];
+function getDataFromDatabase(callback) {
+	// Sample Data Error from DB
+	setTimeout(() => {
+		const error = new Error("Database Error");
+		callback(error, null);
+	}, 1000);
+}
 
 app.get("/get-data", (req, res) => {
-	res.json({ data: dataStore });
-});
-
-app.get("/", (req, res) => {
-	res.send("Hello from Express!");
+	getDataFromDatabase((error, data) => {
+		if (!error) {
+			res.json(data);
+		} else {
+			res.json(error);
+		}
+	});
 });
 
 app.listen(port, () => {

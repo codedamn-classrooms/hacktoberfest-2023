@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function CVCreator() {
 	const [userData, setUserData] = useState({

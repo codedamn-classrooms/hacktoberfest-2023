@@ -15,7 +15,7 @@ app.get("/get-data", (req, res) => {
 		if (!error) {
 			res.json(data);
 		} else {
-			res.json({ error: error.message });
+			res.json({ error: error.message }).status(500);
 		}
 	});
 });

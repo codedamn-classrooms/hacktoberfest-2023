@@ -20,6 +20,10 @@ app.get("/get-data", (req, res) => {
 	});
 });
 
+app.get("/", (req, res) => {
+	res.send("Express Server is up!");
+});
+
 app.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}/`);
 });

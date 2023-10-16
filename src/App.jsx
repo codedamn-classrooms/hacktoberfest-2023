@@ -62,7 +62,11 @@ function CVCreator() {
 			</button>
 			<div className="space-y-4" data-testid="education-list">
 				{userData.education.map((edu, index) => (
-					<div key={index} className="p-4 bg-gray-100 rounded-md">
+					<div
+						key={index}
+						className="p-4 bg-gray-100 rounded-md"
+						data-testid="education-item"
+					>
 						<p className="font-bold">School: {edu.school}</p>
 						<p>Degree: {edu.degree}</p>
 					</div>

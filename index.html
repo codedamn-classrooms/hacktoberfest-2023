@@ -17,7 +17,10 @@
 						<img src="apple.jpg" alt="Apple" />
 						<section>
 							<p>Apple - $1.50</p>
-							<button onclick="addToCart('Apple', 1, 1.5)">
+							<button
+								onclick="addToCart('Apple', 1, 1.5)"
+								id="apple-cart"
+							>
 								Add to Cart
 							</button>
 						</section>
@@ -27,7 +30,10 @@
 						<img src="banana.jpg" alt="Banana" />
 						<section>
 							<p>Banana - $0.75</p>
-							<button onclick="addToCart('Banana', 1, 0.75)">
+							<button
+								onclick="addToCart('Banana', 1, 0.75)"
+								id="banana-cart"
+							>
 								Add to Cart
 							</button>
 						</section>
@@ -36,11 +42,16 @@
 				</div>
 				<div class="cart">
 					<h2>Your Cart</h2>
-					<button onclick="applyDiscount('FruitLover')">
+					<button
+						onclick="applyDiscount('FruitLover')"
+						id="discount-btn"
+					>
 						Apply Discount
 					</button>
 					<p id="discount-message"></p>
-					<button onclick="calculateTotal()">Checkout Total</button>
+					<button onclick="calculateTotal()" id="checkout">
+						Checkout Total
+					</button>
 					<p id="total-price"></p>
 				</div>
 			</main>

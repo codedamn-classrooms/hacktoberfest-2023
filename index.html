@@ -3,46 +3,49 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Habit Tracker</title>
+		<title>Shopping Cart</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<div>
-			<input
-				type="text"
-				id="habit-title"
-				placeholder="Habit Title"
-				required
-			/>
-			<input
-				type="text"
-				id="habit-emoji"
-				placeholder="Emoji"
-				required
-				pattern="\p{Emoji}"
-			/>
-			<input type="color" id="habit-color" required />
-			<button onclick="createHabit()">Add Habit</button>
+		<div class="app">
+			<header>
+				<h1>Shopping Cart</h1>
+			</header>
+			<main>
+				<div class="product-list">
+					<div class="product">
+						<img src="apple.jpg" alt="Apple" />
+						<section>
+							<p>Apple - $1.50</p>
+							<button onclick="addToCart('Apple', 1, 1.5)">
+								Add to Cart
+							</button>
+						</section>
+						<p id="apple-count" class="qty">0</p>
+					</div>
+					<div class="product">
+						<img src="banana.jpg" alt="Banana" />
+						<section>
+							<p>Banana - $0.75</p>
+							<button onclick="addToCart('Banana', 1, 0.75)">
+								Add to Cart
+							</button>
+						</section>
+						<p id="banana-count" class="qty">0</p>
+					</div>
+				</div>
+				<div class="cart">
+					<h2>Your Cart</h2>
+					<button onclick="applyDiscount('FruitLover')">
+						Apply Discount
+					</button>
+					<p id="discount-message"></p>
+					<button onclick="calculateTotal()">Checkout Total</button>
+					<p id="total-price"></p>
+				</div>
+			</main>
 		</div>
-
-		<div id="daily-progress" style="display: none">
-			<span id="date"></span> - Habits Met:
-			<span id="habits-met">0</span>/<span id="total-habits">0</span>
-		</div>
-
-		<div id="habit-container">
-			<!-- Habit counters will be injected here -->
-		</div>
-
-		<dialog id="log-dialog">
-			<button onclick="document.getElementById('log-dialog').close()">
-				Close
-			</button>
-			<ul id="log-list">
-				<!-- Logs will be injected here -->
-			</ul>
-		</dialog>
-
+		<script src="utils.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>

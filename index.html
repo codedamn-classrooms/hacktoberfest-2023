@@ -7,56 +7,36 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<div class="app">
-			<header>
-				<h1>Shopping Cart</h1>
-			</header>
-			<main>
-				<div class="product-list">
-					<div class="product">
-						<img src="apple.jpg" alt="Apple" />
-						<section>
-							<p>Apple - $1.50</p>
-							<button
-								onclick="addToCart('Apple', 1, 1.5)"
-								id="apple-cart"
-							>
-								Add to Cart
-							</button>
-						</section>
-						<p id="apple-count" class="qty">0</p>
-					</div>
-					<div class="product">
-						<img src="banana.jpg" alt="Banana" />
-						<section>
-							<p>Banana - $0.75</p>
-							<button
-								onclick="addToCart('Banana', 1, 0.75)"
-								id="banana-cart"
-							>
-								Add to Cart
-							</button>
-						</section>
-						<p id="banana-count" class="qty">0</p>
-					</div>
+		<h3>Number Converter</h3>
+
+		<p>
+			You can input any string of characters, this app will help you find
+			the equivalent decimal and hexadecimal value if they exist!
+		</p>
+
+		<input
+			type="text"
+			placeholder="Enter a String in decimal.."
+			id="string-input"
+		/>
+		<button id="submit-input">Get Numbers</button>
+
+		<div id="output">
+			<section id="error">
+				Cannot Parse given input, try a different input
+			</section>
+
+			<section id="valid-output">
+				<div id="decimal-output">
+					<p>Decimal</p>
+					<p id="decimal-number">0</p>
 				</div>
-				<div class="cart">
-					<h2>Your Cart</h2>
-					<button
-						onclick="applyDiscount('FruitLover')"
-						id="discount-btn"
-					>
-						Apply Discount
-					</button>
-					<p id="discount-message"></p>
-					<button onclick="calculateTotal()" id="checkout">
-						Checkout Total
-					</button>
-					<p id="total-price"></p>
+				<div id="hexadecimal-output">
+					<p>Hexadecimal</p>
+					<p id="hexadecimal-number">0</p>
 				</div>
-			</main>
+			</section>
 		</div>
-		<script src="utils.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>

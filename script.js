@@ -1,38 +1,37 @@
-let cart = [];
-let discountCode;
+const stringInput = document.querySelector("#string-input");
+const submitButton = document.querySelector("#submit-input");
+const errorElement = document.querySelector("#error");
+const validOutputElement = document.querySelector("#valid-output");
 
-function addToCart(item, quantity, price) {
-	const existingItem = cart.find((cartItem) => cartItem.item === item);
-	if (existingItem) {
-		existingItem.quantity += quantity;
+const decimalElement = document.querySelector("#decimal-number");
+const hexadecimalElement = document.querySelector("#hexadecimal-number");
+
+let stringInputValue = "";
+
+function generateNumber(str) {
+	const decimal = parseInt(str);
+
+	const hexadecimal = parseInt(`0x${str}`);
+
+	return decimal, hexadecimal;
+}
+
+submitButton.addEventListener("click", () => {
+	stringInputValue = stringInput.value;
+	errorElement.style.display = "none";
+	validOutputElement.style.display = "none";
+
+	stringInput.value = "";
+
+	const { decimalValue, hexadecimalValue } = generateNumber(stringInputValue);
+
+	if (isNaN(decimalValue) || isNaN(hexadecimalValue)) {
+		console.log({ decimalValue, hexadecimalValue });
+		errorElement.style.display = "block";
 	} else {
-		cart.push({ item, quantity, price });
-	}
-	document.getElementById(`${item.toLowerCase()}-count`).textContent =
-		existingItem ? existingItem.quantity : quantity;
-	console.log(`${item} added to cart.`);
-}
+		decimalElement.textContent = decimalValue;
+		hexadecimalElement.textContent = hexadecimalValue;
 
-function applyDiscount(code) {
-	// Bug: discountCode should be a number, but it's being stored as a string.
-	discountCode = code === "FruitLover" ? "10" : "0";
-	document.getElementById("discount-message").textContent =
-		discountCode === "10"
-			? `Discount Applied! ${discountCode}% OFF`
-			: "Invalid Discount Code";
-	console.log(`Discount code applied: ${code}`);
-}
-
-function calculateTotal() {
-	let total = 0;
-	for (let i = 0; i < cart.length; i++) {
-		total += cart[i].quantity * cart[i].price;
+		validOutputElement.style.display = "flex";
 	}
-	if (discountCode) {
-		total = calculateDiscount(total, discountCode);
-	}
-	document.getElementById(
-		"total-price"
-	).textContent = `Total: ${formatCurrency(total)}`;
-	console.log(`Total: ${formatCurrency(total)}`);
-}
+});

@@ -79,6 +79,7 @@ export default function Home() {
 
 				<button
 					className="bg-blue-500 hover:bg-blue-600 cursor-pointer px-4 py-2 rounded-md"
+					id="submitBtn"
 					onClick={(event) => handleSubmit(event)}
 				>
 					Get uniqueId

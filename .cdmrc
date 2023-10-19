@@ -1,3 +1,4 @@
-tabs: ["index.html", "script.js"]
-run-button: static-server -p 1337 --no-cache
-terminals: ["static-server -p 1337 --no-cache"]
+tabs:
+  ["src/pages/index.tsx", "src/pages/api/insertUser.ts", "src/db/database.ts"]
+run-button: npm run dev
+terminals: ["npm install && npm run dev"]

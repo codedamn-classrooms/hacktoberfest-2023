@@ -19,7 +19,7 @@ export default function Home() {
 	async function handleSubmit(event: FormEvent) {
 		event.preventDefault();
 
-		let { uniqueId } = await fetch("api/insertUser", {
+		let uniqueId = await fetch("api/insertUser", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",

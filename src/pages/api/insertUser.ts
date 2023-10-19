@@ -8,15 +8,20 @@ export default async function handler(
     res: NextApiResponse
 ) {
 
-    const { username, name, password } = req.body;
+    if (req.method !== 'POST') {
 
-    const response = await db.insertInto('User').values({
-        uniqueId: ulid(),
-        username,
-        name,
-        password
-    }).returning(['uniqueId']).executeTakeFirst();
+        const { username, name, password } = req.body;
+
+        const response = await db.insertInto('User').values({
+            uniqueId: ulid(),
+            username,
+            name,
+            password
+        }).returning(['uniqueId']).executeTakeFirst();
 
 
-    res.status(200).json({ uniqueId: response?.uniqueId })
+        res.status(200).json({ uniqueId: response?.uniqueId })
+    }
+
+    res.status(200).json({ message: "Method not supported!, edit the API Handler" })
 }

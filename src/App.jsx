@@ -7,6 +7,7 @@ function App() {
 		<>
 			<div className="card">{count}</div>
 			<button
+				id="increment"
 				onClick={() => {
 					setCount((count) => count + 1);
 

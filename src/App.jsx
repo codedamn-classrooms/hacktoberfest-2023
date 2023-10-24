@@ -1,29 +1,22 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 function App() {
 	const [count, setCount] = useState(0);
-	const dialogRef = useRef();
 
 	return (
 		<>
 			<div className="card">{count}</div>
 			<button
 				id="increment"
+				data-testid="incrementBtn"
 				onClick={() => {
 					setCount((count) => count + 1);
 
-					dialogRef.current.showModal();
+					console.log({ newCount: count });
 				}}
 			>
 				Increment
 			</button>
-
-			<dialog ref={dialogRef}>
-				<button autofocus onClick={() => dialogRef.current.close()}>
-					Close
-				</button>
-				<p>{count}</p>
-			</dialog>
 		</>
 	);
 }

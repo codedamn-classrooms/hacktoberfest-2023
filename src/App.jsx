@@ -12,7 +12,7 @@ function App() {
 				onClick={() => {
 					setCount((count) => count + 1);
 
-					console.log({ newCount: count });
+					console.log(`newCount: ${count}`);
 				}}
 			>
 				Increment

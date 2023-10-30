@@ -1,5 +1,12 @@
 {
-	"name": "hacktoberfest-2023",
-	"version": "1.0.0",
-	"main": "index.js"
+	"name": "codedamn-jwt-lab",
+	"dependencies": {
+		"jsonwebtoken": "^8.5.1",
+		"node-fetch": "^3.1.0"
+	},
+	"type": "module",
+	"devDependencies": {
+		"vite": "3",
+		"vitest": "0.22.1"
+	}
 }

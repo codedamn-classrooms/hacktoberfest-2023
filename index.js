@@ -1,19 +1,17 @@
-import crypto from "crypto";
+import fs from "fs";
+import jwt from "jsonwebtoken";
+console.log("JWT Lab");
 
-export function hashSHA256(input) {
-	const hash = crypto.createHash("sha256");
-	return hash.update(input);
-}
+const payload = { username: "codedamn" };
+const secretKey = "some-secret-key";
 
-export function hashMD5(input) {
-	const hash = crypto.createHash("md5");
-	return hash.update(input);
-}
+const token = jwt.sign(secretKey, payload);
+console.log("Token:", token);
 
-export function hashSHA1(input) {
-	const hash = crypto.createHash("sha1");
-	return hash.update(input);
-}
+const decodedPayload = jwt.decode(token);
+console.log("Decoded Payload:", decodedPayload);
 
-// Sample Tests
-console.log(hashMD5("lois-test-string"));
+const verified = jwt.verify(secretKey, token);
+console.log("Verified:", verified);
+
+export { token, decodedPayload, verified };

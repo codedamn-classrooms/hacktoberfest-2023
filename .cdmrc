@@ -1,3 +1,3 @@
 tabs: ["index.js"]
-terminals: ["bun install && node index.js"]
+terminals: ["npm install && node index.js"]
 run-button: node index.js

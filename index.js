@@ -1,8 +1,8 @@
-import fs from "fs";
+import fs from "fs/promises";
 
 export async function changeFilePermissions(path) {
 	try {
-		await fs.promises.chmod(path, 666);
+		await fs.chmod(path, 666);
 		return true;
 	} catch (error) {
 		return error;
@@ -11,7 +11,7 @@ export async function changeFilePermissions(path) {
 
 export async function changeFileOwner(path, uid, gid) {
 	try {
-		fs.promises.chown(path, uid, gid);
+		fs.chown(path, uid, gid);
 		return true;
 	} catch (error) {
 		return false;

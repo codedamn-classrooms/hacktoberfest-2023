@@ -1,17 +1,19 @@
 import fs from "fs";
-import jwt from "jsonwebtoken";
-console.log("JWT Lab");
 
-const payload = { username: "codedamn" };
-const secretKey = "some-secret-key";
+export async function changeFilePermissions(path) {
+	try {
+		await fs.promises.chmod(path, 666);
+		return true;
+	} catch (error) {
+		return error;
+	}
+}
 
-const token = jwt.sign(secretKey, payload);
-console.log("Token:", token);
-
-const decodedPayload = jwt.decode(token);
-console.log("Decoded Payload:", decodedPayload);
-
-const verified = jwt.verify(secretKey, token);
-console.log("Verified:", verified);
-
-export { token, decodedPayload, verified };
+export async function changeFileOwner(path, uid, gid) {
+	try {
+		fs.promises.chown(path, uid, gid);
+		return true;
+	} catch (error) {
+		return false;
+	}
+}

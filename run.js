@@ -3,14 +3,14 @@ import fs from 'fs'
 import clc from 'cli-color'
 import Table from 'cli-table'
 
-const grayLog = data => console.log(clc.xterm(8)(data))
-const redLog = data => console.log(clc.xterm(9)(data))
+const grayLog = (data) => console.log(clc.xterm(8)(data))
+const redLog = (data) => console.log(clc.xterm(9)(data))
 
 const databasePath = fs
 	.readdirSync('.')
-	.find(file => file.endsWith('.db') || file.endsWith('.sqlite'))
+	.find((file) => file.endsWith('.db') || file.endsWith('.sqlite'))
 
-const queryFilePath = fs.readdirSync('.').find(file => file.endsWith('.sql'))
+const queryFilePath = fs.readdirSync('.').find((file) => file.endsWith('.sql'))
 
 if (!databasePath) {
 	console.error(
@@ -28,7 +28,7 @@ if (!queryFilePath) {
 
 const db = new Database(databasePath)
 
-const executeAndLogQuery = query => {
+const executeAndLogQuery = (query) => {
 	try {
 		if (query.trim().toUpperCase().startsWith('SELECT')) {
 			const stmt = db.prepare(query)
@@ -39,7 +39,7 @@ const executeAndLogQuery = query => {
 				console.log('No result found')
 			} else {
 				const table = new Table({
-					head: Object.keys(rows[0])
+					head: Object.keys(rows[0]),
 				})
 
 				for (const row of rows) {
@@ -59,7 +59,7 @@ const executeAndLogQuery = query => {
 	}
 }
 
-const executeSqlFile = filePath => {
+const executeSqlFile = (filePath) => {
 	const sqlContent = fs.readFileSync(filePath, 'utf-8')
 	let accumulatedQuery = ''
 

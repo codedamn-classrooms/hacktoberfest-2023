@@ -1,17 +1,12 @@
 -- enter your SQL query here
 -- use the SQL editor UI in browser to browse the SQL database
 
-WITH RankedInvoices AS (
-    SELECT 
-        "Total",
-        RANK() OVER (ORDER BY "Total" ASC) AS "Rank"
-    FROM 
-        "Invoice"
-)
-
 SELECT 
-    "Total" AS "ThirdHighTotal"
+    CustomerId, 
+    InvoiceDate, 
+    julianday(InvoiceDate) - julianday(LAG(InvoiceDate) OVER (PARTITION BY CustomerId ORDER BY julianday(InvoiceDate))) AS DaysSinceLastInvoice
 FROM 
-    RankedInvoices
-WHERE 
-    "Rank" = 4;
+    Invoice
+ORDER BY 
+    CustomerId ASC,
+    julianday(InvoiceDate) DESC;

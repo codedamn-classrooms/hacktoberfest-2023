@@ -1,18 +1,11 @@
--- Running Total of Invoices per Customer
+-- enter your SQL query here
+-- use the SQL editor UI in browser to browse the SQL database
+-- only write your SELECT statement here, comment rest of the statements if present
 
-WITH InvoiceJoin AS (
-    SELECT 
-        i1."CustomerId",
-        i1."InvoiceDate" AS "InvoiceDate",
-        SUM(i1."Total") AS "RunningTotal"
-    FROM "Invoice" i1
-    JOIN "Invoice" i2 ON i1."CustomerId" = i2."CustomerId" 
-    AND i2."InvoiceDate" >= i1."InvoiceDate" 
-    GROUP BY i1."CustomerId", i1."InvoiceDate", i1."Total" 
-)
-
-SELECT 
-    "CustomerId", 
-    "InvoiceDate", 
-    "RunningTotal"
-FROM InvoiceJoin; 
+SELECT
+    admission_date,
+    SUM(admission_date) as admission_day,
+    SUM(admission_date) - LAG(SUM(admission_date)) OVER(ORDER BY admission_date ASC) AS admission_count_change 
+FROM admissions
+GROUP BY admission_date
+ORDER BY admission_date DESC;

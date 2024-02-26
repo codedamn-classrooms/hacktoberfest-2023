@@ -1,4 +1,4 @@
 tabs:
   ["src/pages/index.tsx", "src/pages/api/insertUser.ts", "src/db/database.ts"]
-run-button: npm run dev
-terminals: ["npm install && npm run dev"]
+run-button: bun run dev
+terminals: ["bun install && bun run dev"]
